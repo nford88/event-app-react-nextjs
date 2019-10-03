@@ -1,5 +1,5 @@
-import Layout from '../components/MyLayout.js'
-import loadDB from '../lib/load-db'
+import Layout from '../../components/MyLayout.js'
+import loadDB from '../../lib/load-db'
 
 function Post({ item }) {
   return (

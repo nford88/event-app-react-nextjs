@@ -5,7 +5,7 @@ import loadDB from '../lib/load-db'
 function PostLink(props) {
   return (
     <li>
-      <Link as={`/p/${props.id}`} href={`/post?id=${props.id}`}>
+      <Link href="/p/[id]" as={`/p/${props.id}`}>
         <a>{props.title}</a>
       </Link>
     </li>
