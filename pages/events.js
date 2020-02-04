@@ -2,13 +2,13 @@ import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import fetch from 'isomorphic-unfetch'
 import useSWR from 'swr'
-
+import Spinner from '../components/Spinner'
 const fetcher = url => fetch(url).then(r => r.json())
 
 const Index = props => {
   const { data } = useSWR('/api/tickets', fetcher)
 
-  if (!data) return <div>loading...</div>
+  if (!data) return <Spinner />
 
   return (
     <Container className="defaultContainerBody">
