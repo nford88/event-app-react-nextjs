@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './global_css.css'
+
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
 }

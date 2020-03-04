@@ -1,7 +1,7 @@
 const querystring = require('querystring')
 const fetch = require('node-fetch')
 const isBefore = require('date-fns/isBefore')
-import { groupBy, chain } from 'lodash';
+import { groupBy, chain } from 'lodash'
 
 // import data from './events.json'
 let dataS = []
@@ -11,11 +11,11 @@ const fetchApi = () => {
   const params = {
     apikey: 'bQ8tC2OMgdsB5mWdbNGEGR3d1V1bTc5v',
     sort: 'date,name,asc',
-    size: '100',
+    size: '200',
     geoPoint: 'gc7x7q',
     radius: '15',
     unit: 'km',
-    localStartDateTime: '2020-02-03T01:00:00,2020-02-17T23:00:00'
+    localStartDateTime: '2020-03-04T01:00:00,2020-03-18T23:00:00'
   }
   let queryString = querystring.stringify(params)
   if (dataS.length === 0) {
@@ -41,7 +41,7 @@ const formatEventResults = data => {
   //   return console.log('day =', d)
   // })
 
-  return sorted;
+  return sorted
 }
 
 const handler = async (req, res) => {

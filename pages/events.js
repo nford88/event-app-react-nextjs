@@ -5,11 +5,9 @@ import useSWR from 'swr'
 import Spinner from '../components/Spinner'
 import { format as dateFormat } from 'date-fns'
 
+const EventsMain = props => {
+  const fetcher = url => fetch(url).then(r => r.json())
 
-
-const fetcher = url => fetch(url).then(r => r.json())
-
-const Index = props => {
   const { data } = useSWR('/api/tickets', fetcher)
 
   if (!data) return <Spinner />
@@ -20,14 +18,15 @@ const Index = props => {
         <Row className="eventDateBlock justify-content-center">
           <Col xs="12" lg="10">
             <Row className="date-container">
-              <Col className="day">{dateFormat(new Date(day.date), 'EEE do MMM')}</Col>
+              <Col className="day">
+                {dateFormat(new Date(day.date), 'EEE do MMM')}
+              </Col>
             </Row>
             <Events events={day.events} />
           </Col>
         </Row>
-      ))
-      }
-    </Container >
+      ))}
+    </Container>
   )
 }
 
@@ -61,11 +60,12 @@ const Events = props => {
               <Col xs="2">
                 <PricePrettier event={event} />
               </Col>
-
             </Row>
           </Col>
           <Col className="zigzag">
-            <div className="verticalEventGenre">{event.classifications[0].segment.name}</div>
+            <div className="verticalEventGenre">
+              {event.classifications[0].segment.name}
+            </div>
           </Col>
         </Row>
       </Col>
@@ -108,13 +108,10 @@ const PricePrettier = props => {
     return (
       <div>
         <div>€{priceLow.toFixed(2)}</div>
-        {priceHigh ? (
-          <div> - €{priceHigh.toFixed(2)}</div>
-        ) : []}
-      </div >
+        {priceHigh ? <div> - €{priceHigh.toFixed(2)}</div> : []}
+      </div>
     )
-  }
-  else {
+  } else {
     return <div>Check For Details</div>
   }
 }
@@ -125,6 +122,10 @@ const VerticalEventGenre = props => {
   return null
 }
 
+const CollapsableVenue = props => {
+  const { classifications } = props
+  console.log(classifications.segment)
+  return null
+}
 
-
-export default Index
+export default EventsMain
