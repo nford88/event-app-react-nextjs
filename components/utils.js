@@ -6,7 +6,6 @@ export const groupByVenue = events => {
     .chain(filteredEvents)
     .groupBy(result => result.dates.start.localDate)
     .map((events, key) => ({ date: key, events: events }))
-    .value()
 }
 
 export const dateRangesForApi = () => {
