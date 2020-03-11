@@ -8,15 +8,10 @@ export const groupByVenue = events => {
     .map((events, key) => ({ date: key, events: events }))
 }
 
-export const dateRangesForApi = () => {
-  const formatDate = date => {
-    return formatISO(date)
-  }
+export const dateRangesForTicketMasterApi = () => {
   let start = startOfWeek(new Date(), 1)
-  let end = addDays(start, 14)
-  let startFormat = formatDate(start)
-  let endFormat = formatDate(end)
-  let dateRange = startFormat + ',' + endFormat
+  let end = addDays(start, 15)
+  let dateRange = formatISO(start) + ',' + formatISO(end)
   let editedDate = dateRange.replace(/Z/g, '')
   return editedDate
 }

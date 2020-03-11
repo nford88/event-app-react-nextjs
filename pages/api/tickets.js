@@ -2,7 +2,7 @@ const querystring = require('querystring')
 const fetch = require('node-fetch')
 const isBefore = require('date-fns/isBefore')
 import { groupBy, chain } from 'lodash'
-import { dateRangesForApi } from '../../components/utils'
+import { dateRangesForTicketMasterApi } from '../../components/utils'
 // import data from './events.json'
 
 let dataS = []
@@ -16,7 +16,7 @@ const fetchApi = () => {
     geoPoint: 'gc7x7q',
     radius: '15',
     unit: 'km',
-    localStartDateTime: dateRangesForApi()
+    localStartDateTime: dateRangesForTicketMasterApi()
   }
   let queryString = querystring.stringify(params)
   if (dataS.length === 0) {
