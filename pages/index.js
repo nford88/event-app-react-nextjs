@@ -6,7 +6,7 @@ export default function Index() {
   return (
     <div>
       <EventsNav />
-      <Jumbotron>
+      <Jumbotron className="events-home-jumbotron">
         <Container>
           <h1 className="display-3 text-center">Dublin Events Arts Guide</h1>
           <hr className="my-3" />
