@@ -1,13 +1,136 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 
+.loader {
+  font-size: 10px;
+  margin: 50px auto;
+  text-indent: -9999em;
+  width: 11em;
+  height: 11em;
+  border-radius: 50%;
+  background: #ffffff;
+  background: -moz-linear-gradient(
+    left,
+    #ffffff 10%,
+    rgba(255, 255, 255, 0) 42%
+  );
+  background: -webkit-linear-gradient(
+    left,
+    #ffffff 10%,
+    rgba(255, 255, 255, 0) 42%
+  );
+  background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -ms-linear-gradient(
+    left,
+    #ffffff 10%,
+    rgba(255, 255, 255, 0) 42%
+  );
+  background: linear-gradient(
+    to right,
+    #ffffff 10%,
+    rgba(255, 255, 255, 0) 42%
+  );
+  position: relative;
+  -webkit-animation: load3 1.4s infinite linear;
+  animation: load3 1.4s infinite linear;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.loader:before {
+  width: 50%;
+  height: 50%;
+  background: #ffffff;
+  border-radius: 100% 0 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+}
+.loader:after {
+  background: #7392b7;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  content: '';
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+@-webkit-keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.bg-custom {
+  background-color: #7392b7;
+}
+
+.eventDateBlock .date-container {
+  padding: 0px 15px;
+  margin-top: 40px;
+}
+
+.eventDateBlock .day {
+  background: #e8e7e7;
+  border: 1px solid black;
+  color: black;
+  text-align: center;
+}
+
 .eventRow {
   border: 1px black solid;
-  padding: 10px 0px;
-  margin: 5px 0px;
-  background: lightblue;
+  padding: 0px 0px;
+  margin: 8px 0px;
+  background: white;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+.eventRow .eventVenue {
+  /* TODO: Change to Flex/Float bottom */
+  position: absolute;
+  bottom: 0px;
+}
+
+.eventRow .eventVenue p {
+  margin: 5px 2px;
+}
+
+.eventRow .eventDetailBlock {
+  height: 100%;
+}
+
+.eventRow .identSeeMore {
+  text-align: center;
+}
+
+.eventImageContainer {
+  padding: 0px;
+}
+
+.eventImageContainer img {
+  height: 100%;
+  max-width: 135px;
 }
 
 .eventRowHeader {
@@ -16,10 +139,50 @@
   font-style: normal;
 }
 
-.defaultContainerBody {
-  padding-top: 100px;
+.events-home-jumbotron {
+  margin-bottom: 0px;
+}
+
+.eventDetailBlock .eventName_container {
+  margin: 10px 0px;
+  background: black;
+}
+
+.eventDetailBlock .eventName_container h6 {
+  color: white;
+  padding: 5px 2px;
+}
+
+.eventRow .verticalEventGenre {
+  transform: rotate(90deg);
+  transform-origin: right, top;
+  -ms-transform: rotate(90deg);
+  -ms-transform-origin: right, top;
+  -webkit-transform: rotate(90deg);
+  -webkit-transform-origin: right, top;
+  position: absolute;
+  margin-top: 20px;
+  text-align: center;
+  /* color: #ed217c; */
+}
+
+.zigzag {
+  max-height: 100px;
+  background: linear-gradient(-137deg, #c5d5ea 6px, transparent 0) 0 5px,
+    linear-gradient(320deg, #c5d5ea 5px, #fff 0) 0 5px;
+  background-color: #c5d5ea;
+  background-position: left bottom;
+  background-repeat: repeat-y;
+  background-size: 10px 10px;
 }
 
 #__next {
-  background: lightskyblue;
+  background: #7392b7;
+}
+
+.spinnerBody {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #7392b7;
 }
