@@ -4,6 +4,7 @@ import fetch from 'isomorphic-unfetch'
 import useSWR from 'swr'
 import Spinner from '../components/Spinner'
 import { format as dateFormat } from 'date-fns'
+import Link from 'next/link'
 
 const EventsMain = props => {
   const fetcher = url => fetch(url).then(r => r.json())
@@ -46,9 +47,11 @@ const Events = props => {
             <Row className="eventDetailBlock">
               <Col>
                 <div className="eventName_container">
-                  <a href={event.url} target="_blank">
-                    <h6>{event.name}</h6>
-                  </a>
+                  <Link href={`/event/${event.id}`}>
+                    <a>
+                      <h6>{event.name}</h6>
+                    </a>
+                  </Link>
                 </div>
                 <div className="eventVenue">
                   <p>{event._embedded.venues[0].name}</p>
